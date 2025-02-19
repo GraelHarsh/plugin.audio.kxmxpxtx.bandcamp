@@ -66,8 +66,9 @@ def build_song_list(band, album, tracks, autoplay=False):
         playlist = xbmc.PlayList(xbmc.PLAYLIST_MUSIC)
         xbmcplugin.setResolvedUrl(addon_handle, True, listitem=track_list[0][1])
         xbmc.sleep(2000)
+        nextSlot = playlist.getposition() + 1
         for url, list_item, folder in track_list[:0:-1]:
-            playlist.add(url, list_item, 1)
+            playlist.add(url, list_item, nextSlot)
     else:
         xbmcplugin.addDirectoryItems(addon_handle, track_list, len(track_list))
         xbmcplugin.setContent(addon_handle, 'songs')
