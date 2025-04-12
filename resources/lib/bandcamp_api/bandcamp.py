@@ -20,7 +20,7 @@ def urlopen_ua(url, data=None, content_type=None):
     headers = {'User-Agent': USER_AGENT}
     if content_type is not None:
         headers['Content-Type'] = content_type
-    return urlopen(Request(url, data=data, headers=headers), timeout=5)
+    return urlopen(Request(url, data=data, headers=headers), timeout=15)
 
 def req(url, data=None, content_type=None):
     if isinstance(data, dict):
